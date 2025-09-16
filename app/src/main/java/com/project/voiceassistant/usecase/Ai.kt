@@ -1,7 +1,6 @@
 package com.project.voiceassistant.usecase
 
 import android.content.Context
-import android.util.Log
 import com.project.voiceassistant.R
 import com.project.voiceassistant.repository.geo.GeoRepository
 import com.project.voiceassistant.repository.weather.WeatherRepository
@@ -81,7 +80,6 @@ class Ai @Inject constructor(
 
     private suspend fun getWeatherInfo(cityName: String): String {
         return if (cityName.isNotBlank()) {
-            Log.d("VoiceAssistantDebug", "4: Внутри Ai.getWeatherInfo. Вызываю репозиторий.")
             withContext(Dispatchers.IO) {
                 weatherRepository.getWeatherStringForCity(cityName)
             }
@@ -96,7 +94,7 @@ class Ai @Inject constructor(
                 geoRepository.getGeoInfoString(query)
             }
         } else {
-            "Пожалуйста, укажите, что нужно найти."
+            context.getString(R.string.geo_specify_query)
         }
     }
 
@@ -105,10 +103,10 @@ class Ai @Inject constructor(
             try {
                 NumberToWords.convert(numberStr.toLong())
             } catch (_: NumberFormatException) {
-                "Неверный формат числа."
+                context.getString(R.string.error_invalid_number_format)
             }
         } else {
-            "Пожалуйста, укажите число для преобразования."
+            context.getString(R.string.number_specify_query)
         }
     }
 

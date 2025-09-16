@@ -26,6 +26,13 @@
     <string name="dark_mode">Тёмная тема</string>
     <string name="light_mode">Светлая тема</string>
     <string name="clear_chat">Очистить чат</string>
+    <string name="geo_search_results_header">Вот что удалось найти по запросу «%s»:</string>
+    <string name="geo_search_not_found">По запросу «%s» ничего не найдено.</string>
+    <string name="geo_search_network_error">Не удалось выполнить поиск по запросу «%s» (сетевая ошибка).</string>
+    <string name="geo_search_api_error">Ошибка API: %s</string>
+    <string name="geo_specify_query">Пожалуйста, укажите, что нужно найти.</string>
+    <string name="error_invalid_number_format">Неверный формат числа.</string>
+    <string name="number_specify_query">Пожалуйста, укажите число для преобразования.</string>
 
     <plurals name="degree_plural">
         <item quantity="one">%d градус</item>

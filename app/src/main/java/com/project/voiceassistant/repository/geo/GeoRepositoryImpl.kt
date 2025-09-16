@@ -1,43 +1,38 @@
 package com.project.voiceassistant.repository.geo
 
+import android.content.Context
+import com.project.voiceassistant.R
 import com.project.voiceassistant.network.geo.GeoApiService
+import dagger.hilt.android.qualifiers.ApplicationContext
 import javax.inject.Inject
 
 class GeoRepositoryImpl @Inject constructor(
-    private val geoApiService: GeoApiService
+    private val geoApiService: GeoApiService,
+    @ApplicationContext private val context: Context
 ) : GeoRepository {
     override suspend fun getGeoInfoString(query: String): String {
         val result = geoApiService.searchGeo(query)
 
         if (result.isFailure) {
-            return "Не удалось выполнить поиск по запросу '$query' (сетевая ошибка)."
+            return context.getString(R.string.geo_search_network_error, query)
         }
 
         val response = result.getOrThrow()
-        if (response.error != null) {
-            return "Ошибка API: ${response.error}"
+
+        // 1. Извлекаем ПОЛНЫЕ ИМЕНА только из поля "city"
+        val fullNames = response.city?.values?.mapNotNull { it.fullName }
+
+        // 2. Проверяем, нашли ли мы что-нибудь в этом поле
+        if (fullNames.isNullOrEmpty()) {
+            return context.getString(R.string.geo_search_not_found, query)
         }
 
-        val builder = StringBuilder()
-        builder.append("Вот что удалось найти по запросу '$query':\n")
+        // 3. Форматируем результат в чистый список без лишних добавлений
+        val header = context.getString(R.string.geo_search_results_header, query)
 
-        response.city?.values?.firstOrNull()?.let {
-            builder.append("Город: ${it.name} (${it.country})\n")
-        }
-        response.area?.firstOrNull()?.let {
-            builder.append("Область: ${it.name}\n")
-        }
-        response.rajon?.firstOrNull()?.let {
-            builder.append("Район: ${it.name}\n")
-        }
-        response.country?.firstOrNull()?.let {
-            builder.append("Страна: ${it.name}\n")
-        }
+        // Берем до 5 первых результатов и объединяем их в одну строку
+        val locationsListString = fullNames.take(5).joinToString(separator = "\n")
 
-        if (builder.length <= "Вот что удалось найти по запросу '$query':\n".length) {
-            return "По запросу '$query' ничего не найдено."
-        }
-
-        return builder.toString().trim()
+        return "$header\n$locationsListString"
     }
 }

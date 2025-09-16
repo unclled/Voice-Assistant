@@ -147,7 +147,10 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideGeoRepository(geoApiService: GeoApiService): GeoRepository {
-        return GeoRepositoryImpl(geoApiService)
+    fun provideGeoRepository(
+        geoApiService: GeoApiService,
+        @ApplicationContext context: Context
+    ): GeoRepository {
+        return GeoRepositoryImpl(geoApiService, context)
     }
 }

@@ -1,6 +1,7 @@
 package com.project.voiceassistant.model.geo
 
 import kotlinx.serialization.Serializable
+import kotlinx.serialization.SerialName
 
 @Serializable
 data class GeoSearchResponse(
@@ -20,5 +21,7 @@ data class GeoObject(
     val id: Int,
     val name: String,
     val english: String? = null,
-    val country: String? = null
+    val country: String? = null,
+    @SerialName("full_name")
+    val fullName: String? = null
 )
