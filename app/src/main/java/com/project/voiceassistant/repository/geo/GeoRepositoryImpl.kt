@@ -1,6 +1,5 @@
 package com.project.voiceassistant.repository.geo
 
-import android.util.Log
 import com.project.voiceassistant.network.geo.GeoApiService
 import javax.inject.Inject
 

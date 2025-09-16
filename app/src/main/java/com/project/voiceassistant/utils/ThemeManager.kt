@@ -2,14 +2,12 @@ package com.project.voiceassistant.utils
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.content.res.Configuration
-import androidx.compose.foundation.isSystemInDarkTheme
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import javax.inject.Singleton
 import androidx.core.content.edit
+import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import javax.inject.Inject
+import javax.inject.Singleton
 
 @Singleton
 class ThemeManager @Inject constructor(@ApplicationContext context: Context) {

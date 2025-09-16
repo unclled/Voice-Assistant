@@ -7,7 +7,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.project.voiceassistant.R
 import com.project.voiceassistant.ui.components.message.common.MessageCard
 import com.project.voiceassistant.ui.theme.VoiceAssistantTheme
-import com.project.voiceassistant.utils.getCurrentTimestamp
 
 @Composable
 fun AssistantResponse(

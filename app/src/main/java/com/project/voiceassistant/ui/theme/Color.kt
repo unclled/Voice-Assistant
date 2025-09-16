@@ -1,7 +1,6 @@
 package com.project.voiceassistant.ui.theme
 
 import androidx.compose.runtime.Immutable
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 val accentColor = Color(0xE0FFC107)
