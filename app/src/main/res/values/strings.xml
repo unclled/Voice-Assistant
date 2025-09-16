@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Voice Assistant</string>
+    <string name="ask_question">Задайте вопрос</string>
+    <string name="send">Отправить</string>
+    <string name="hello_assistant">Привет! Я твой персональный помощник. Если есть вопросы, обращайся, всегда помогу :p</string>
+    <string name="how_are_you">Всё отлично! Спасибо, что интересуетесь!</string>
+    <string name="what_are_you_doing">Отвечаю на ваши вопросы!</string>
+    <string name="today_date">Сегодняшняя дата %s.</string>
+    <string name="current_time">Текущее время %s.</string>
+    <string name="day_of_week">Сегодня %s.</string>
+    <string name="days_until">До %s осталось %d дней.</string>
+    <string name="date_passed">Дата %s уже прошла.</string>
+    <string name="same_date">Сегодня и есть %s!</string>
+    <string name="not_understood">Извините, я не совсем понял. Можете перефразировать вопрос?</string>
+    <string name="error_response">Не удалось получить ответ на этот вопрос :(</string>
+    <string name="invalid_date_format">Пожалуйста, укажите дату в формате ДД.ММ.ГГГГ.</string>
+    <string name="user_icon">Иконка пользователя</string>
+    <string name="assistant_icon">Иконка помощника</string>
+    <string name="user">Пользователь</string>
+    <string name="assistant">Ассистент</string>
+    <string name="weather_in">В городе %s сейчас %2$.2f градус</string>
+    <string name="can_not_get_data">Не удалось получить полные данные о погоде для города %s.</string>
+    <string name="error_occurred">Произошла ошибка при запросе погоды для города %s.</string>
+    <string name="no_data">нет данных</string>
+    <string name="incorrect_city">Я не смог разобрать, погоду в каком городе вы хотите узнать? Напишите "Погода Киров"</string>
+    <string name="dark_mode">Тёмная тема</string>
+    <string name="light_mode">Светлая тема</string>
+    <string name="clear_chat">Очистить чат</string>
+
+    <plurals name="degree_plural">
+        <item quantity="one">%d градус</item>
+        <item quantity="few">%d градуса</item>
+        <item quantity="many">%d градусов</item>
+        <item quantity="other">%d градуса</item>
+    </plurals>
+</resources>
