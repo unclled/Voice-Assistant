@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1092742556349",
+    "project_id": "assistant-a203d",
+    "storage_bucket": "assistant-a203d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092742556349:android:944ed2192652f13e4d25d4",
+        "android_client_info": {
+          "package_name": "com.example.flutter_va"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5JJBtciZ7jzaQi5flGDDMQ0G6dWjFgj8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
