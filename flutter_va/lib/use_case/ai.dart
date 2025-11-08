@@ -1,11 +1,19 @@
 import 'dart:convert';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:intl/intl.dart';
-
 import '../domain/weather.dart';
 import '../network/weather_service.dart';
 
 class AI {
-  final WeatherService _weatherService = WeatherService();
+  late final WeatherService _weatherService;
+  AI() {
+    final apiKey = dotenv.env['API_KEY'];
+    if (apiKey == null) {
+      throw Exception("API_KEY not found in .env file. Make sure .env is in the root and added to assets in pubspec.yaml");
+    }
+
+    _weatherService = WeatherService(apiKey: apiKey);
+  }
 
   Future<String> getAnswer(String question) async {
     question = question.toLowerCase().trim();
@@ -41,6 +49,7 @@ class AI {
           data['main']['temp'].toDouble(), data['weather'][0]['description']);
       return 'Сейчас в городе $city ${weather.temperature.round()}°C, ${weather.description}.';
     } catch (e) {
+      print('ОШИБКА при получении погоды: $e');
       return 'Не удалось получить погоду для города $city. Проверьте название.';
     }
   }
